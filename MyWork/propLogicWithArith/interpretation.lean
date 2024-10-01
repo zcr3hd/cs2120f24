@@ -1,11 +1,11 @@
-import Cs2120f24.Lectures.«02_prop_logic».formal.utilities
-import Cs2120f24.Lectures.«02_prop_logic».formal.semantics
+import Cs2120f24.Library.propLogicWithArith.utilities
+import Cs2120f24.Library.propLogicWithArith.semantics
 
 /-!
 #### Boolean Interpretation
 -/
 
-namespace cs2120f24.lecture.prop_logic
+namespace cs2120f24
 
 -- From interpretation, variable, and new Bool, override that interpretation to assign that new value to that variable
 def overrideVarValInInterp : BoolInterp → BoolVar → Bool → BoolInterp
@@ -57,18 +57,7 @@ where mk_interps_helper : (rows : Nat) → (numvars : Nat) → List BoolInterp
 
 /-!
 Given an expression, e, return the number of distinct variable expressions
-it contains. That in turn is one more than the highest variable index value
-starting from 0. The answer for P ∧ P would thus be 1 (not 2), for example.
-For ⊤ it'd be 0: there are no variable expressions in the structure of ⊤.
-
-This function definition provides a beautiful example of case analysis: here
-on the structure of a propositional logic expression argument. If it's literal,
-the result is computed one way; a variable expression, another way, applying an
-interpretation function to compute the result; or compound operator expressions,
-unary or binary. The meaning of a compound expression is computed in turn by
-applying the appropriate combing/transforming operation to the *meanings of
-its subexpressions, computed by recursive evaluation, now of a subexpression,
-under the same fixed interpretation.
+it contains.
 -/
 def numVarsFromExpr : PLExpr → Nat := (fun e => max_variable_index e + 1) where
 max_variable_index : PLExpr → Nat
@@ -103,5 +92,3 @@ Given a list of Bool interps and a width w, output them as a list of list of Boo
 def interpStringsFromInterps : List BoolInterp → Nat → List (List String)
 | [], _ => []
 | h::t, n => bitStringsFromInterp h n::interpStringsFromInterps t n
-
-end cs2120f24.lecture.prop_logic

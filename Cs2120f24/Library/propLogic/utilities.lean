@@ -2,7 +2,7 @@
 #### Low-level bit vector routines
 -/
 
-namespace cs2120f24.lecture.prop_logic
+namespace cs2120f24.propLogic
 
 /-!
 Converting natural number indices to corresponding rows of
@@ -80,4 +80,4 @@ where foo : List Bool → Nat → Option Nat
           /-search rest-/
           foo bs len
 
-end cs2120f24.lecture.prop_logic
+end cs2120f24.propLogic

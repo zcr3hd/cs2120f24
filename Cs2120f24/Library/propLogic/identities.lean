@@ -1,6 +1,6 @@
-import «Cs2120f24».Lectures.«02_prop_logic».formal.syntax
+import «Cs2120f24».Library.propLogic.syntax
 
-namespace cs2120f24.lecture.prop_logic
+namespace cs2120f24.propLogic
 
 def P := {⟨0⟩}
 def Q := {⟨1⟩}
@@ -32,4 +32,4 @@ def implication     := (P ⇒ Q) ↔ (¬P ∨ Q)
 def exportation     := ((P ∧ Q) ⇒ R) ↔ (P ⇒ Q ⇒ R)
 def absurdity       := (P ⇒ Q) ∧ (P ⇒ ¬Q) ⇒ ¬P
 
-end cs2120f24.lecture.prop_logic
+end cs2120f24.propLogic
